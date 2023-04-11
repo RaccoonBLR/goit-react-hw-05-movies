@@ -11,11 +11,7 @@ const Reviews = () => {
     getReviews(movieId).then(setReviewsInfo);
   }, [movieId]);
 
-  return (
-    <>
-      <ReviewsList reviewsInfo={reviewsInfo} />
-    </>
-  );
+  return <ReviewsList reviewsInfo={reviewsInfo} />;
 };
 
 export default Reviews;

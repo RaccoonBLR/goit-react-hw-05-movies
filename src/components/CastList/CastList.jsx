@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const CastList = ({ castInfo }) => (
   <ul>
     {castInfo.map(({ cast_id, profile_path, name, character }) => {
@@ -15,3 +17,7 @@ export const CastList = ({ castInfo }) => (
     })}
   </ul>
 );
+
+CastList.propTypes = {
+  castInfo: PropTypes.array.isRequired,
+};

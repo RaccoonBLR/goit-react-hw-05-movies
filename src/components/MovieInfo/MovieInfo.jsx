@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { NavLink, Link, Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const MovieInfo = ({ data, location }) => {
   const { poster_path, title, release_date, vote_average, overview } = data;
@@ -37,4 +38,16 @@ export const MovieInfo = ({ data, location }) => {
       </Suspense>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  data: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+  location: PropTypes.object,
 };

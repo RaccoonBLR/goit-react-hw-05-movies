@@ -11,7 +11,7 @@ const Cast = () => {
     getCast(movieId).then(setCastInfo);
   }, [movieId]);
 
-  return <>{castInfo && <CastList castInfo={castInfo} />}</>;
+  return <CastList castInfo={castInfo} />;
 };
 
 export default Cast;
