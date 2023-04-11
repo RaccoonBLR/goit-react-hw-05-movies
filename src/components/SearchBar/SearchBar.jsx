@@ -1,6 +1,3 @@
-export const SearchBar = ({ value, setParams }) => {
-  const onChange = ({ target: { value } }) =>
-    value ? setParams({ query: value }) : setParams({});
-
+export const SearchBar = ({ value, onChange }) => {
   return <input type="text" value={value} onChange={onChange} />;
 };

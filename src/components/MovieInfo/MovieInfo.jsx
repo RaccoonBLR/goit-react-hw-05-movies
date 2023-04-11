@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { NavLink, Link, Outlet } from 'react-router-dom';
 
 export const MovieInfo = ({ data, location }) => {
@@ -7,8 +8,7 @@ export const MovieInfo = ({ data, location }) => {
 
   return (
     <>
-      <Link to={location?.state?.from}>Go Back</Link>
-
+      <Link to={location.current}>Go Back</Link>
       <img
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={poster_path}
@@ -25,18 +25,16 @@ export const MovieInfo = ({ data, location }) => {
         Additional information
         <ul>
           <li>
-            <NavLink to="cast" state={location.state}>
-              Cast
-            </NavLink>
+            <NavLink to="cast">Cast</NavLink>
           </li>
           <li>
-            <NavLink to="reviews" state={location.state}>
-              Reviews
-            </NavLink>
+            <NavLink to="reviews">Reviews</NavLink>
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

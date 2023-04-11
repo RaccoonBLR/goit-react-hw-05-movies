@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { ColorRing } from 'react-loader-spinner';
 
 export const SharedLayout = () => (
   <>
@@ -9,7 +11,9 @@ export const SharedLayout = () => (
       </nav>
     </header>
     <main>
-      <Outlet />
+      <Suspense fallback={<ColorRing />}>
+        <Outlet />
+      </Suspense>
     </main>
   </>
 );
